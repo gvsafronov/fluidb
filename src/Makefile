@@ -200,12 +200,7 @@ else
 ifeq ($(uname_S),NetBSD)
 	# NetBSD
 	FINAL_LIBS+= -lpthread -lexecinfo
-else
-ifeq ($(uname_S),Haiku)
-	# Haiku
-	FINAL_CFLAGS+= -DBSD_SOURCE
-	FINAL_LDFLAGS+= -lbsd -lnetwork
-	FINAL_LIBS+= -lpthread
+
 else
 	# All the other OSes (notably Linux)
 	FINAL_LDFLAGS+= -rdynamic
@@ -389,27 +384,27 @@ else
 endif
 	@touch $@
 
-# keydb-server
+# fluidb-server
 $(REDIS_SERVER_NAME): $(REDIS_SERVER_OBJ)
 	$(REDIS_LD) -o $@ $^ ../deps/hiredis/libhiredis.a ../deps/lua/src/liblua.a $(FINAL_LIBS)
 
-# keydb-sentinel
+# fluidb-sentinel
 #$(REDIS_SENTINEL_NAME): $(REDIS_SERVER_NAME)
 #	$(REDIS_INSTALL) $(REDIS_SERVER_NAME) $(REDIS_SENTINEL_NAME)
 
-# keydb-check-rdb
+# fluidb-check-rdb
 $(REDIS_CHECK_RDB_NAME): $(REDIS_SERVER_NAME)
 	$(REDIS_INSTALL) $(REDIS_SERVER_NAME) $(REDIS_CHECK_RDB_NAME)
 
-# keydb-check-aof
+# fluidb-check-aof
 $(REDIS_CHECK_AOF_NAME): $(REDIS_SERVER_NAME)
 	$(REDIS_INSTALL) $(REDIS_SERVER_NAME) $(REDIS_CHECK_AOF_NAME)
 
-# keydb-cli
+# fluidb-cli
 $(REDIS_CLI_NAME): $(REDIS_CLI_OBJ)
 	$(REDIS_LD) -o $@ $^ ../deps/hiredis/libhiredis.a ../deps/linenoise/linenoise.o $(FINAL_LIBS)
 
-# keydb-benchmark
+# fluidb-benchmark
 $(REDIS_BENCHMARK_NAME): $(REDIS_BENCHMARK_OBJ)
 	$(REDIS_LD) -o $@ $^ ../deps/hiredis/libhiredis.a ../deps/hdr_histogram/hdr_histogram.o $(FINAL_LIBS)
 
@@ -461,11 +456,11 @@ lcov:
 bench: $(REDIS_BENCHMARK_NAME)
 	./$(REDIS_BENCHMARK_NAME)
 
-32bit:
-	@echo ""
-	@echo "WARNING: if it fails under Linux you probably need to install libc6-dev-i386"
-	@echo ""
-	$(MAKE) CXXFLAGS="-m32" CFLAGS="-m32" LDFLAGS="-m32"
+#32bit:
+#	@echo ""
+#	@echo "WARNING: if it fails under Linux you probably need to install libc6-dev-i386"
+#	@echo ""
+#	$(MAKE) CXXFLAGS="-m32" CFLAGS="-m32" LDFLAGS="-m32"
 
 gcov:
 	$(MAKE) REDIS_CXXFLAGS="-fprofile-arcs -ftest-coverage -DCOVERAGE_TEST" REDIS_CFLAGS="-fprofile-arcs -ftest-coverage -DCOVERAGE_TEST" REDIS_LDFLAGS="-fprofile-arcs -ftest-coverage"
