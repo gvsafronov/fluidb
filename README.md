@@ -183,11 +183,14 @@ yum install -y tcl-devel tcltls
 % make BUILD_TLS=yes
 To build with systemd support, you'll need systemd development libraries (such as libsystemd-dev on Debian/Ubuntu or systemd-devel on CentOS) and run:
  ```
-% make USE_SYSTEMD=yes
 To append a suffix to fluidB program names, use:
+  ``` 
+% make USE_SYSTEMD=yes
+
  ```
-% make PROG_SUFFIX="-alt"
 ***Note that the following dependencies may be needed: % sudo apt-get install autoconf autotools-dev libnuma-dev libtool
+```
+% make PROG_SUFFIX="-alt"
  ```
 If TLS is built, running the tests with TLS enabled (you will need tcl-tls installed):
  ```
