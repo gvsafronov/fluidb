@@ -408,7 +408,6 @@ No, FluidB is still distributed as source and run-ready binaries on GitHub.
 <br>
 
 * **Is there a docker image of the project?**
-
 No, there is no docker image, because docker, like any virtualization environment, forms an additional layer of abstraction, which complicates both the development process itself and the program operation process. Our goal: "To create a high-performance subassembly that is as easy to use as possible"
 
 <br>
