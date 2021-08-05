@@ -178,11 +178,26 @@ yum install -y tcl-devel tcltls
    ```sh
    cd fluidb && make
    ```
-4. To build with TLS support, you'll need OpenSSL development libraries (e.g. libssl-dev on Debian/Ubuntu) and run:`
-   ```
-   make BUILD_TLS=yes';
-   ```
- 
+4. To build with TLS support, you'll need OpenSSL development libraries (e.g. libssl-dev on Debian/Ubuntu) and run:
+ ```
+% make BUILD_TLS=yes
+To build with systemd support, you'll need systemd development libraries (such as libsystemd-dev on Debian/Ubuntu or systemd-devel on CentOS) and run:
+ ```
+% make USE_SYSTEMD=yes
+To append a suffix to fluidB program names, use:
+ ```
+% make PROG_SUFFIX="-alt"
+***Note that the following dependencies may be needed: % sudo apt-get install autoconf autotools-dev libnuma-dev libtool
+ ```
+If TLS is built, running the tests with TLS enabled (you will need tcl-tls installed):
+ ```
+% ./utils/gen-test-certs.sh
+% ./runtest --tls
+If TLS is built, running the tests with TLS enabled (you will need tcl-tls installed):
+ ```
+% ./utils/gen-test-certs.sh
+% ./runtest --tls
+```
  ### Installation
  
  You can install fluidB download the binary from our site https://fluidb.icu/#download
