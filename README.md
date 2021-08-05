@@ -16,6 +16,7 @@
   ### Distributed Multimodel real-time in memory database management system
 
 
+
   <br>
 
  <!-- TABLE OF CONTENTS -->
@@ -37,10 +38,8 @@
     <li><a href="#gratitudes">Gratitudes</a></li>
     <li><a href="#requirements">Requirements</a></li>
     <li><a href="#cases">Cases</a></li>
-    <li><a href="#structure">Structure</a></li>
-    <li><a href="#building">Building</a></li>
-    <li><a href="#troubles">Troubles</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+	<li><a href="#troubles">Troubles</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -62,8 +61,6 @@ fluidB is often referred to as a data structures server. What this means is that
 Good example is to think of fluidB as a more complex version of memcached, where the operations are not just SETs and GETs, but operations that work with complex data types like Lists, Sets, ordered data structures, and so forth.
 
 
-
-
 ## Gratitudes
 
 * **Salvatore Sanfilippo (antirez)**, I would like to express our gratitude for all that you have done!!! Thank you.
@@ -74,14 +71,15 @@ Good example is to think of fluidB as a more complex version of memcached, where
 <!-- System Requirements -->
 ## Requirements
 
-* Hardware: Intel or AMD 64-bit (x64) processor
+* Hardware: Intel or AMD
 * RAM: 256 MB (minimal) or above
-* Nodes: 3 (strongly recomended)
-* Operating System: UNIX-like only (Linux, BSD, OpenIndiana) or MacOS X **Windows isn't supported**
+* Nodes: 2 (for very small cluster)
+* Operating System: UNIX-like only (Linux, BSD, OpenIndiana) **Windows isn't supported
 <br/><br/>
 
 <!-- GETTING STARTED -->
-<p>
+
+<br>
 
 ## Cases
 
@@ -91,30 +89,9 @@ Good example is to think of fluidB as a more complex version of memcached, where
 * Pattern "Central dispatcher" (for sharding)
 * Solution that sits in front of multiple data sources and allow them to be treated as a single json database
 
- <br>
+<br>
 
-# Getting Started
-
-
-### Structure
-
-
-The Redis root directory just contains this README, the Makefile which
-calls the real Makefile inside the `src` directory. 
-
-Inside the root are the following important directories:
-
-* `src`: contains the fluidB implementation, written in C++
-* `src/modules`: contains the fluidB modules implementation, expanding the basic functionality
-* `tests`: contains the unit tests, implemented in Tcl
-* `deps`: contains libraries fluidB uses. Everything needed to compile Redis is inside this directory; your system just needs to provide `libc`, a POSIX compatible interface and a C compiler. Notably `deps` contains a copy of `jemalloc`, which is the default allocator of fluidB under Linux. Note that under `deps` there are also things which started with the fluidB project
-
-There are a few more directories but they are not very important for our goals
-here. We'll focus mostly on `src`, where the fluidB implementation is contained,
-exploring what there is inside each file. The order in which files are
-exposed is the logical one to follow in order to disclose different layers
-of complexity incrementally.
-
+## Getting Started
 
 Multithreading Architecture
 ---------------------------
@@ -127,57 +104,17 @@ Future work:
  - Allow rebalancing of connections to different threads after the connection
  - Allow multiple readers access to the hashtable concurrently
 
-  
-## Building (for all distribuitions)
-  
-### Installatiion dependencies Ubuntu/Debian
+### Preparations
 
-Upade and then Install gcc, g++ and all dependencies
-
-```sh
- sudo apt update 
- ```
-
+1. Install gcc, g++ and all dependencies
 
   ```sh
  sudo apt install build-essential nasm autotools-dev autoconf libjemalloc-dev tcl tcl-dev uuid-dev libcurl4-openssl-dev
   ```
-  
-  ### Installatiion dependencies Archlinux/Manjaro Linux
-  
-  ```sh
-  pacman -Syu --noconfirm
-  pacman -S --noconfirm base-devel git tcl
-  ```
-  
- ### Installatiion dependencies CentOS 7
- 
- ```sh
- 
-sudo yum install -y scl-utils centos-release-scl
-sudo yum install -y devtoolset-7 libuuid-devel
-sudo source scl_source enable devtoolset-7
-sudo yum install -y openssl openssl-devel curl-devel devtoolset-7-libatomic-devel tcl tcl-devel git wget epel-release
-sudo yum install -y tcltls libzstd
-```
-  
- ### Installatiion dependencies CentOS 8
- 
- ```sh
-yum install -y scl-utils epel-release
-dnf group install -y "Development Tools"
-yum install -y 'dnf-command(config-manager)'
-yum install -y dnf-plugins-core
-dnf config-manager --set-enabled powertools
-yum install -y libuuid-devel which libatomic
-yum install -y openssl openssl-devel curl-devel git
-yum install -y tcl-devel tcltls
-```  
-  
-  
+
+### Building
 
 1. Install gcc, g++ and all dependencies (see Prerequisites)
-  
 2. Clone the repo
    ```sh
    git clone https://github.com/gvsafronov/fluidb.git
@@ -186,31 +123,11 @@ yum install -y tcl-devel tcltls
    ```sh
    cd fluidb && make
    ```
- 4. To build with TLS support, you'll need OpenSSL development libraries (e.g. libssl-dev on Debian/Ubuntu) and run:
-   
-  ```sh
-  % make BUILD_TLS=yes
+4. To build with TLS support, you'll need OpenSSL development libraries (e.g. libssl-dev on Debian/Ubuntu) and run:`
    ```
-To append a suffix to fluidB program names, use:
-``` 
-% make USE_SYSTEMD=yes
-  ``` 
-
-***Note that the following dependencies may be needed: % sudo apt-get install autoconf autotools-dev libnuma-dev libtool
-  
-  ``` 
-% make PROG_SUFFIX="-alt"
- ```
-If TLS is built, running the tests with TLS enabled (you will need tcl-tls installed):
- ```
-% ./utils/gen-test-certs.sh
-% ./runtest --tls
- ```  
-If TLS is built, running the tests with TLS enabled (you will need tcl-tls installed):
- ```
-% ./utils/gen-test-certs.sh
-% ./runtest --tls
-```
+   make BUILD_TLS=yes';
+   ```
+ 
  ### Installation
  
  You can install fluidB download the binary from our site https://fluidb.icu/#download
@@ -237,7 +154,7 @@ To run fluidB with the default configuration just type:
 If you want to provide your fluidB.conf, you have to run it using an additional
 parameter (the path of the configuration file):
 
-    $ ./fluidB-serv --port 9999 --replicaof 127.0.0.1 9470
+    $ ./fluidB-serv --port 9999 --replicaof 127.0.0.1 6379
     $ ./fluidB-serv /etc/fluidB/6379.conf --loglevel debug
 
 All the options in fluidB.conf are also supported as options using the command
@@ -246,46 +163,14 @@ line, with exactly the same name.
 It is possible to alter the fluidB configuration by passing parameters directly
 as options using the command line. Examples:
 
-    % ./fluidB-serv --port 9999 --replicaof 127.0.0.1 9470
+    % ./fluidB-serv --port 9999 --replicaof 127.0.0.1 6379
     % ./fluidB-serv /etc/fluidB/6379.conf --loglevel debug
 
 All the options in fluidB.conf are also supported as options using the command
 line, with exactly the same name.
-<br>
-  
-### Troubles
-  
- This section lists common the most popular troubles which are encountered during working
 
-1. After starting the application you see the follow worrying-looking warning:
-  
- #### Trouble №1 
-  
-  ```
- WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
-  ```
- #### Solution
-  
-  ```
-  Add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
-  ```
-  
- ### Trouble №2
 
-After starting the application you see the follow worrying-looking warning:
-  
-```
-WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
-WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
-  ```
-  
-  #### Solution
-  
-  Install hugepages
-  ```
-  sudo apt install hugepages
-  ``` 
- 
+
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -366,6 +251,44 @@ If you want to see a more verbose output use the following:
 ## Roadmap
 
 See the [open issues](https://github.com/gvsafronov/fluidb/issues) for a list of proposed features (and known issues).
+
+
+## Troubles
+
+### Troubles
+  
+ This section lists common the most popular troubles which are encountered during working
+
+1. After starting the application you see the follow worrying-looking warning:
+  
+ #### Trouble №1 
+  
+  ```
+ WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+  ```
+ #### Solution
+  
+  ```
+  Add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+  ```
+  
+ ### Trouble №2
+
+After starting the application you see the follow worrying-looking warning:
+  
+```
+WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+  ```
+  
+  #### Solution
+  
+  Install hugepages
+  ```
+  sudo apt install hugepages
+  ``` 
+
+
 
 ## New Configuration Options
 
@@ -479,6 +402,7 @@ This is illustrated by the colors of the logo: At first, there is no load on the
 <br>
 
 
+
 * **I have decided to purchase the Enterprise version of your product, where should I contact?**
 
 You shoud write the letter in email: gvsafronov@gmail.com
@@ -491,6 +415,5 @@ You shoud write the letter in email: gvsafronov@gmail.com
 Grigoriy Safronov - gvsafronov@gmail.com
 
 Project Link: [https://fluidb.icu](https://fluidb.icu)
-
 
 
