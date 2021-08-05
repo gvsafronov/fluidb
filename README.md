@@ -402,7 +402,7 @@ No, there is no implementation of FluidB for the Windows operating system. our a
 
 <br>
 
-* **Is FluidB in Linux repositories?**<br>
+* **Is fluidB in Linux repositories?**<br>
 No, FluidB is still distributed as source and run-ready binaries on GitHub.
 
 <br>
