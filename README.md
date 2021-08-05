@@ -230,7 +230,7 @@ To run fluidB with the default configuration just type:
 If you want to provide your fluidB.conf, you have to run it using an additional
 parameter (the path of the configuration file):
 
-    $ ./fluidB-serv --port 9999 --replicaof 127.0.0.1 6379
+    $ ./fluidB-serv --port 9999 --replicaof 127.0.0.1 9470
     $ ./fluidB-serv /etc/fluidB/6379.conf --loglevel debug
 
 All the options in fluidB.conf are also supported as options using the command
@@ -239,7 +239,7 @@ line, with exactly the same name.
 It is possible to alter the fluidB configuration by passing parameters directly
 as options using the command line. Examples:
 
-    % ./fluidB-serv --port 9999 --replicaof 127.0.0.1 6379
+    % ./fluidB-serv --port 9999 --replicaof 127.0.0.1 9470
     % ./fluidB-serv /etc/fluidB/6379.conf --loglevel debug
 
 All the options in fluidB.conf are also supported as options using the command
