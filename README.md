@@ -418,17 +418,13 @@ No, FluidB is still distributed as source and run-ready binaries on GitHub.
 
 No, there is no docker image, because docker, like any virtualization environment, forms an additional layer of abstraction, which complicates both the development process itself and the program operation process. Our goal: "To create a high-performance subassembly that is as easy to use as possible"
 
-
 <br>
-
 
 * **Why are you confident that you will be able to create a high-quality, competitive software product that people need?**
 
 <br>
 
-
 For several reasons. First, because our product is based on the well-proven Redis DBMS. Secondly, our software product is already used as a backend in the ws-stickleback project "Biology and Soil" of the Faculty of the Department of Ichthyology and Hydrobiology, St. Petersburg State University
-
 
 <br>
 
@@ -437,14 +433,12 @@ For several reasons. First, because our product is based on the well-proven Redi
 
 There is such a version, it is calledEnterprise-version, this version includes both the functionality required by the client (discussed individually with each client) and the default functionality.
 
-
 <br>
 
 
 * **How is authorization used?**
 
 In the traditional sense, there is no authorization. We have a funny login form that we wrote to show how you can quickly implement it using JavaScript, it is used by default in our fluwc web interface, where you can make "typical requests" in the browser. FluidB is not intended to be publicly displayed. This is an application that works on the Internet, so we do not have authorization at this stage.
-
 
 <br>
 
@@ -454,9 +448,7 @@ In the traditional sense, there is no authorization. We have a funny login form 
 The name of our project is deciphered as follows: FluidB, this is a reference to the English word "fluid", which means "fluid" - a physical term meaning "a state of matter with parameters above critical", which very accurately characterizes our product. A critical state of a substance means a state in which it disappears the difference between its liquid and vapor phases.
 This is illustrated by the colors of the logo: At first, there is no load on the application (blue Greek letter "Phi"), then it increases sharply (three red subsequent letters), then the load begins to decrease and evenly distribute- orange symbol, differential, showing the rate of change of the value of the variable during balancing, and finally it is evenly distributed and becomes normal (seventh blue symbol). In our case, it should be interpreted as follows: thanks to our product, the line between low loads and very high loads is erased, i.e. to. it helps balance the load. A couple of words should be said separately about the symbol of the "flower" standing in front of the inscription: It personifies the mathematical graph of objects, tk. our subd is a multi-model supporting graph data storage model.
 
-
 <br>
-
 
 
 * **I have decided to purchase the Enterprise version of your product, where should I contact?**
