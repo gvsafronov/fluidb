@@ -38,6 +38,7 @@
     <li><a href="#requirements">Requirements</a></li>
     <li><a href="#cases">Cases</a></li>
     <li><a href="#structure">Structure</a></li>
+    <li><a href="#building">Building</a></li>
     <li><a href="#troubles">Troubles</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -126,6 +127,9 @@ Future work:
  - Allow rebalancing of connections to different threads after the connection
  - Allow multiple readers access to the hashtable concurrently
 
+  
+## Building (for all distribuitions)
+  
 ### Installatiion dependencies Ubuntu/Debian
 
 Upade and then Install gcc, g++ and all dependencies
@@ -168,9 +172,9 @@ dnf config-manager --set-enabled powertools
 yum install -y libuuid-devel which libatomic
 yum install -y openssl openssl-devel curl-devel git
 yum install -y tcl-devel tcltls
-```
+```  
   
-### Building (for all distribuitions)
+  
 
 1. Install gcc, g++ and all dependencies (see Prerequisites)
   
@@ -247,10 +251,11 @@ as options using the command line. Examples:
 
 All the options in fluidB.conf are also supported as options using the command
 line, with exactly the same name.
-
 <br>
   
 ### Troubles
+  
+ This section lists common the most popular troubles which are encountered during working
 
 1. After starting the application you see the follow worrying-looking warning:
   
@@ -264,6 +269,23 @@ line, with exactly the same name.
   ```
   Add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
   ```
+  
+ ### Trouble №2
+
+After starting the application you see the follow worrying-looking warning:
+  
+```
+WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+  ```
+  
+  #### Solution
+  
+  Install hugepages
+  ```
+  sudo apt install hugepages
+  ``` 
+ 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
