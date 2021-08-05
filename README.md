@@ -170,6 +170,7 @@ yum install -y tcl-devel tcltls
 ### Building (for all distribuitions)
 
 1. Install gcc, g++ and all dependencies (see Prerequisites)
+  
 2. Clone the repo
    ```sh
    git clone https://github.com/gvsafronov/fluidb.git
@@ -179,9 +180,10 @@ yum install -y tcl-devel tcltls
    cd fluidb && make
    ```
 4. To build with TLS support, you'll need OpenSSL development libraries (e.g. libssl-dev on Debian/Ubuntu) and run:
-   ```
+   
+  ```sh
   % make BUILD_TLS=yes
- ```
+   ```
 To append a suffix to fluidB program names, use:
 ``` 
 % make USE_SYSTEMD=yes
