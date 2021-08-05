@@ -180,10 +180,10 @@ yum install -y tcl-devel tcltls
    ```
 4. To build with TLS support, you'll need OpenSSL development libraries (e.g. libssl-dev on Debian/Ubuntu) and run:
    ```
-% make BUILD_TLS=yes
+  % make BUILD_TLS=yes
  ```
 To append a suffix to fluidB program names, use:
-  ``` 
+``` 
 % make USE_SYSTEMD=yes
   ``` 
 
