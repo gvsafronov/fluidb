@@ -413,7 +413,6 @@ No, there is no docker image, because docker, like any virtualization environmen
 <br>
 
 * **Why are you confident that you will be able to create a high-quality, competitive software product that people need?**
-
 <br>
 
 For several reasons. First, because our product is based on the well-proven Redis DBMS. Secondly, our software product is already used as a backend in the ws-stickleback project "Biology and Soil" of the Faculty of the Department of Ichthyology and Hydrobiology, St. Petersburg State University
