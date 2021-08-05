@@ -381,28 +381,21 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <br>
 
-
 * **What is the main idea of your project?**
 The key idea of our product is that it solves the problems of processing, storing and analyzing a large amount of continuously incoming data, mainly geolocation data. It is intended primarily for application software developers and DBAs (Database Administrators). Our main goal is to provide the user with a simple yet flexible and functional tool for working with data.
 
-
 <br>
-
 
 * **How is your project different from KeyDB?**
 
 When developing our product, we took KeyDB as a basis, as an improved version of the Redis sub-database, easy and understandable to learn and operate. The difference between fluidB and KeyDB lies in the implementation of a shell module that allows you to run external modules (programs) that extend the basic functionality of the application without explicitly specifying the path to the module in the configuration file.
 
-
 <br>
-
 
 * **What is the multi-model database management system?**
 A multi-model subdivision is such a subdivision that allows you to store data using different data storage schemes. For example, along with relational data (stored in the form of tables), data can be stored in the form of graphs, an associative array, etc. Thus, incredible flexibility in storing data is achieved, depending on the type of data, the most suitable tool for storing and processing it is used.
 
-
 <br>
-
 
 * **Is there a FluidB implementation for the Windows operating system?**
 No, there is no implementation of FluidB for the Windows operating system. our application is client-server, with on-board caching subdivision, focused on use mainly on servers, and the vast majority of servers run under the Linux operating system. We do not plan to release a version for Windows in the future.
