@@ -194,7 +194,7 @@ then in another terminal try the following:
     (integer) 2
     fluidB:~>
 
-You can find the list of all the available commands at https://docs.keydb.dev/docs/commands/
+You can find the list of all the available commands at  <a href="https://docs.keydb.dev/docs/commands/">Available Commands</a>
 
 
 Fixing build problems with dependencies or cached build options
