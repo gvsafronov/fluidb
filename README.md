@@ -117,7 +117,7 @@ Future work:
 
 ### Building
 
-1. Install gcc, g++ and all dependencies (see Prerequisites)
+1. Install gcc, g++ and all dependencies (see Preparations)
 2. Clone the repo
    ```sh
    git clone https://github.com/gvsafronov/fluidb.git
