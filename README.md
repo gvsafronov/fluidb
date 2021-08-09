@@ -39,6 +39,7 @@
     <li><a href="#requirements">Requirements</a></li>
     <li><a href="#cases">Cases</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#tls">TLS</a></li>
     <li><a href="#troubles">Troubles</a></li>
     <li><a href="#cluster">Cluster</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -283,6 +284,11 @@ WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. Th
   ```
   sudo apt install hugepages
   ``` 
+
+## TLS Support
+
+
+
 
 ## Cluster
 
