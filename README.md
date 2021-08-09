@@ -140,7 +140,7 @@ Future work:
  4. Open you terminal and then print ($-terminal prompt) `$ tar xvjf archive.tar.bz2`
  5. `$ cd fluidb && src`
  6. `$ ./fluidb-serv`
- 
+ <br>
   
 ### Running fluidB
 
@@ -168,9 +168,9 @@ as options using the command line. Examples:
 
 All the options in fluidB.conf are also supported as options using the command
 line, with exactly the same name.
+<br>
 
-
-### Playing with fluidB
+### Start working with fluidB
 
 
 You can use fluidB-cli to play with fluidB. Start a fluidB-server instance,
