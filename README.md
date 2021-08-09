@@ -34,7 +34,6 @@
         <li><a href="#Installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#gratitudes">Gratitudes</a></li>
     <li><a href="#requirements">Requirements</a></li>
     <li><a href="#cases">Cases</a></li>
@@ -89,6 +88,8 @@ Good example is to think of fluidB as a more complex version of memcached, where
 * Queue server
 * Pattern "Central dispatcher" (for sharding)
 * Solution that sits in front of multiple data sources and allow them to be treated as a single json database
+
+For useful cases of how a project can be used, please refer to the <a href="https://docs.keydb.dev/docs/">Documentation</a>
 
 <br>
 
