@@ -111,7 +111,7 @@ Future work:
 1. Install gcc, g++ and all dependencies
 
   ```sh
- sudo apt install build-essential nasm autotools-dev autoconf libjemalloc-dev tcl tcl-dev uuid-dev libcurl4-openssl-dev -y pkg-config
+ sudo apt install build-essential nasm autotools-dev autoconf libjemalloc-dev tcl tcl-dev uuid-dev libcurl4-openssl-dev -y pkg-config cmake m4 automake peg libtool autoconf
   ```
 <br>
 
