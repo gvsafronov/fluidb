@@ -196,7 +196,8 @@ Here we'll quickly create a small graph representing a subset of motorcycle ride
    4) Relationships created: 3
    5) "Query internal execution time: 0.399000 milliseconds"
 
-Now that our MotoGP graph is created, we can start asking questions. For example: Who's riding for team Yamaha?
+Now that our MotoGP graph is created, we can start asking questions.
+For example: Who's riding for team Yamaha?
 
  fluidB:~> GRAPH.QUERY MotoGP "MATCH (r:Rider)-[:rides]->(t:Team) WHERE t.name = 'Yamaha' RETURN r.name, t.name"
 1) 1) "r.name"
