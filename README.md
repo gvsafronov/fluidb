@@ -175,6 +175,7 @@ then in another terminal try the following:
 ---------------------------------------    
  Let's start with key-value model
 ---------------------------------------
+
     % cd src
     % ./clif
     fluidB:~> ping
