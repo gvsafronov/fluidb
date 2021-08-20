@@ -66,6 +66,7 @@ Good example is to think of fluidB as a more complex version of memcached, where
 ## Requirements
 
 * Hardware: Intel or AMD
+* Processor: 64-bit
 * RAM: 256 MB (minimal) or above
 * Nodes: 3 (strongly recomended)
 * Operating System: UNIX-like only (Linux, BSD, Mac OS X, OpenIndiana) **Windows isn't supported**
@@ -157,8 +158,8 @@ line, with exactly the same name.
 It is possible to alter the fluidB configuration by passing parameters directly
 as options using the command line. Examples:
 
-    % ./fluidB-serv --port 9999 --replicaof 127.0.0.1 9470
-    % ./fluidB-serv /etc/fluidB/9470.conf --loglevel debug
+    $ ./fluidB-serv --port 9999 --replicaof 127.0.0.1 9470
+    $ ./fluidB-serv /etc/fluidB/9470.conf --loglevel debug
 
 All the options in fluidB.conf are also supported as options using the command
 line, with exactly the same name.
