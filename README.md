@@ -1,11 +1,3 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
 
 <!-- PROJECT LOGO -->
 <p align="center">
@@ -75,7 +67,7 @@ Good example is to think of fluidB as a more complex version of memcached, where
 * Hardware: Intel or AMD
 * RAM: 256 MB (minimal) or above
 * Nodes: 3 (strongly recomended)
-* Operating System: UNIX-like only (Linux, BSD, OpenIndiana) **Windows isn't supported
+* Operating System: UNIX-like only (Linux, BSD, Mac OS X, OpenIndiana) **Windows isn't supported
 
 <!-- GETTING STARTED -->
 
@@ -190,7 +182,27 @@ then in another terminal try the following:
     (integer) 1
     fluidB:~> incr mycounter
     (integer) 2
-    fluidB:~>
+    
+    
+    Now playing with grahp
+
+  Here we'll quickly create a small graph representing a subset of motorcycle riders and teams taking part in the MotoGP championship. Once created, we'll start querying our data.
+    
+  fluidB:~> GRAPH.QUERY MotoGP "CREATE (:Rider {name:'Valentino Rossi'})-[:rides]->(:Team {name:'Yamaha'}), (:Rider {name:'Dani Pedrosa'})-[:rides]->(:Team {name:'Honda'}), (:Rider {name:'Andrea Dovizioso'})-[:rides]->(:Team {name:'Ducati'})"
+1) 1) Labels added: 2
+   2) Nodes created: 6
+   3) Properties set: 6
+   4) Relationships created: 3
+   5) "Query internal execution time: 0.399000 milliseconds"
+
+Now that our MotoGP graph is created, we can start asking questions. For example: Who's riding for team Yamaha?
+
+ fluidB:~> GRAPH.QUERY MotoGP "MATCH (r:Rider)-[:rides]->(t:Team) WHERE t.name = 'Yamaha' RETURN r.name, t.name"
+1) 1) "r.name"
+   2) "t.name"
+2) 1) 1) "Valentino Rossi"
+      2) "Yamaha"
+3) 1) "Query internal execution time: 0.625399 milliseconds"
 
 You can find the list of all the available commands at  <a href="https://docs.keydb.dev/docs/commands/">Available Commands</a>
 
