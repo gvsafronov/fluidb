@@ -56,6 +56,7 @@ make
 cp /root/fluidb/fluexe/src/fluexe.so /root/fluidb/src/modules
 		   
 		   cd /root && cd fluidb && cd src
+rm keydb-sentinel		   
            
 ./fluidb-serv /root/fluidb/fluidb.conf
 
