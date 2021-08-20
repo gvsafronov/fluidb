@@ -163,11 +163,11 @@ else
 	OPENSSL_CFLAGS=-I/usr/local/opt/openssl/include
 	OPENSSL_LDFLAGS=-L/usr/local/opt/openssl/lib
 endif
-else
-ifeq ($(uname_S),AIX)
-        # AIX
-        FINAL_LDFLAGS+= -Wl,-bexpall
-        FINAL_LIBS+=-ldl -pthread -lcrypt -lbsd
+#else
+#ifeq ($(uname_S),AIX)
+#        # AIX
+ #       FINAL_LDFLAGS+= -Wl,-bexpall
+#        FINAL_LIBS+=-ldl -pthread -lcrypt -lbsd
 else
 ifeq ($(uname_S),OpenBSD)
 	# OpenBSD
@@ -221,7 +221,7 @@ endif
 endif
 endif
 endif
-endif
+#endif
 #endif
 # Include paths to dependencies
 FINAL_CFLAGS+= -I../deps/hiredis -I../deps/linenoise -I../deps/lua/src -I../deps/hdr_histogram
@@ -474,11 +474,11 @@ lcov:
 bench: $(REDIS_BENCHMARK_NAME)
 	./$(REDIS_BENCHMARK_NAME)
 
-32bit:
-	@echo ""
-	@echo "WARNING: if it fails under Linux you probably need to install libc6-dev-i386"
-	@echo ""
-	$(MAKE) CXXFLAGS="-m32" CFLAGS="-m32" LDFLAGS="-m32" TARGET32=true
+#32bit:
+#	@echo ""
+#	@echo "WARNING: if it fails under Linux you probably need to install libc6-dev-i386"
+#	@echo ""
+#	$(MAKE) CXXFLAGS="-m32" CFLAGS="-m32" LDFLAGS="-m32" TARGET32=true
 
 gcov:
 	$(MAKE) KEYDB_CXXFLAGS="-fprofile-arcs -ftest-coverage -DCOVERAGE_TEST" KEYDB_CFLAGS="-fprofile-arcs -ftest-coverage -DCOVERAGE_TEST" KEYDB_LDFLAGS="-fprofile-arcs -ftest-coverage"
