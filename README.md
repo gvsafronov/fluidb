@@ -124,16 +124,15 @@ Future work:
    ```
  <br>
  
- ### Installation
+ ### Automatic Installation
  
- You can install fluidB download the binary from our site https://fluidb.icu/#download
+ You can install fluidB using installation script from our site https://fluidb.icu/#download
  
  1. Open the link above
  2. Click to "Download" button
  3. Copy the tar-archive in your home directory
- 4. Open you terminal and then print ($-terminal prompt) `$ tar xvjf archive.tar.bz2`
- 5. `$ cd fluidb && src`
- 6. `$ ./fluidb-serv`
+ 4. Open you terminal and then print ($-terminal prompt) `$ chmod +x install.sh && ./install.sh
+ 5. Wait for the installation process to complete, after installation the application will start automatically
  <br>
   
 ### Running fluidB
